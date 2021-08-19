@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     private let background: UIImageView = {
         let imageView = UIImageView.init(image: #imageLiteral(resourceName: "fundo"))
         imageView.alpha = 0.4
-        imageView.contentMode = .scaleAspectFill 
+        imageView.contentMode = .scaleAspectFill  
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

@@ -9,104 +9,178 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    
+    //MARK:- Imagens
+    
+    private let background: UIImageView = {
+        let imageView = UIImageView.init(image: #imageLiteral(resourceName: "fundo"))
+        imageView.alpha = 0.4
+        imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    
+    private let logo: UIImageView = {
+        let imageView = UIImageView.init(image: #imageLiteral(resourceName: "Logo1"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    
+    private let tituloLabel1: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "OpenSans-Bold", size: 40)
+        label.textColor = .black
+        label.textAlignment = .center
+        label.text = "Don't"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+
+    private let tituloLabel2: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "OpenSans-Bold", size: 40)
+        label.textColor = .black
+        label.textAlignment = .center
+        label.text = "Waste"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    
+    private let tituloLabel3: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "OpenSans-Bold", size: 25)
+        label.textColor = .black
+        label.textAlignment = .center
+        label.text = "organize"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+
+    private let subtituloLabel1: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "OpenSans-Bold", size: 40)
+        label.textColor = UIColor.init(red: 94/255, green: 186/255, blue: 168/255, alpha: 1)
+        label.textAlignment = .center
+        label.text = "Sua despensa"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+   
+    private let subtituloLabel2: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "OpenSans-Bold", size: 40)
+        label.textColor = UIColor.init(red: 94/255, green: 186/255, blue: 168/255, alpha: 1)
+        label.textAlignment = .center
+        label.text = "inteligente"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    
+    private let primeiroAcessoButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("PRIMEIRO ACESSO", for: .normal)
+        button.titleLabel?.font = UIFont(name: "Arial Bold", size: 12)
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.backgroundColor = UIColor.init(displayP3Red: 223/255, green: 213/255, blue: 214/255, alpha: 0.8)
+        button.addTarget(self, action: #selector(didTapAcesso),for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    
+    private let loginButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("LOGIN", for: .normal)
+        button.titleLabel?.font = UIFont(name: "Arial Bold", size: 12)
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.backgroundColor = UIColor.init(red: 94/255, green: 186/255, blue: 168/255, alpha: 1)
+        button.addTarget(self, action: #selector(didTapLogin),for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //MARK:- Imagens
-            
-        let background = UIImageView (frame: UIScreen.main.bounds)
-        background.image = UIImage (named: "fundo")
-        background.contentMode = .scaleToFill
-        background.alpha = 0.65
-        background.clipsToBounds = true
-            
-        let logo = UIImageView (frame: UIScreen.main.bounds)
-        logo.image = UIImage (named: "Logo1")
-        logo.contentMode = .center
-        logo.clipsToBounds = true
-        logo.center = CGPoint(x: 180, y: 170)
-        self.view.insertSubview(background, at: 0)
-        self.view.insertSubview(logo, at: 1)
-        
-        //MARK:- labels
-
-        let titulolabel = UILabel (frame: UIScreen.main.bounds)
-        titulolabel.font = UIFont(name: "OpenSans-Bold", size: 40)
-        titulolabel.textColor = .black
-        titulolabel.center = CGPoint(x: 180, y: 284)
-        titulolabel.textAlignment = .center
-        titulolabel.text = "Don't"
-        
-        let titulolabel2 = UILabel (frame: UIScreen.main.bounds)
-        titulolabel2.font = UIFont(name: "OpenSans-Bold", size: 40)
-        titulolabel2.textColor = .black
-        titulolabel2.center = CGPoint(x: 180, y: 330)
-        titulolabel2.textAlignment = .center
-        titulolabel2.text = "Waste"
-        
-        let titulolabel3 = UILabel (frame: UIScreen.main.bounds)
-        titulolabel3.font = UIFont(name: "OpenSans-Bold", size: 25)
-        titulolabel3.textColor = .black
-        titulolabel3.center = CGPoint(x: 180, y: 370)
-        titulolabel3.textAlignment = .center
-        titulolabel3.text = "organize"
-        
-        let subtitulolabel1 = UILabel (frame: UIScreen.main.bounds)
-        subtitulolabel1.font = UIFont(name: "OpenSans-Bold", size: 40)
-        subtitulolabel1.textColor = UIColor.init(red: 94/255, green: 186/255, blue: 168/255, alpha: 1)
-        subtitulolabel1.center = CGPoint(x: 180, y: 450)
-        subtitulolabel1.textAlignment = .center
-        subtitulolabel1.text = "Sua despensa"
-        
-        let subtitulolabel2 = UILabel (frame: UIScreen.main.bounds)
-        subtitulolabel2.font = UIFont(name: "OpenSans-Bold", size: 40)
-        subtitulolabel2.textColor = UIColor.init(red: 94/255, green: 186/255, blue: 168/255, alpha: 1)
-        subtitulolabel2.center = CGPoint(x: 180, y: 500)
-        subtitulolabel2.textAlignment = .center
-        subtitulolabel2.text = "inteligente"
-        
-        //MARK:- Buttons
-
-        let primeiroAcessobutton = UIButton(frame: CGRect(x: 20, y: 20, width: 160, height: 30))
-        primeiroAcessobutton.setTitle("Primeiro Acesso", for: .normal)
-        primeiroAcessobutton.titleLabel?.font = UIFont(name: "Arial Bold", size: 12)
-        primeiroAcessobutton.backgroundColor = .gray
-        primeiroAcessobutton.alpha = 0.65
-        primeiroAcessobutton.layer.borderColor = UIColor.black.cgColor
-        primeiroAcessobutton.setTitleColor(UIColor.black, for: .normal)
-        primeiroAcessobutton.addTarget(self, action: #selector(didTapAcesso),for: .touchUpInside)
-        primeiroAcessobutton.center = CGPoint(x: 100, y: 570)
-        
-        let loginbutton = UIButton(frame: CGRect(x: 20, y: 20, width: 160, height: 30))
-        loginbutton.setTitle("Login", for: .normal)
-        loginbutton.titleLabel?.font = UIFont(name: "Arial Bold", size: 12)
-        loginbutton.backgroundColor = UIColor.init(red: 94/255, green: 186/255, blue: 168/255, alpha: 1)
-        loginbutton.layer.borderColor = UIColor.black.cgColor
-        loginbutton.setTitleColor(UIColor.black, for: .normal)
-        loginbutton.addTarget(self, action: Selector(("btnclicked:")),for: .touchUpInside)
-        loginbutton.center = CGPoint(x: 270, y: 570)
-        
+        self.view.backgroundColor = .white
+       
         //exibindo os elementos na tela
-        self.view.insertSubview(background, at: 0)
-        self.view.insertSubview(logo, at: 1)
-        self.view.addSubview(titulolabel)
-        self.view.addSubview(titulolabel2)
-        self.view.addSubview(titulolabel3)
-        self.view.addSubview(subtitulolabel1)
-        self.view.addSubview(subtitulolabel2)
-        self.view.addSubview(primeiroAcessobutton)
-        self.view.addSubview(loginbutton)
+        self.view.addSubview(background)
+        self.view.addSubview(logo)
+        
+        self.view.addSubview(tituloLabel1)
+        self.view.addSubview(tituloLabel2)
+        self.view.addSubview(tituloLabel3)
+        
+        self.view.addSubview(subtituloLabel1)
+        self.view.addSubview(subtituloLabel2)
 
+        self.view.addSubview(primeiroAcessoButton)
+        self.view.addSubview(loginButton)
+
+        setupConstraints()
 
     }
     
-   @objc private func didTapAcesso() {
-       
+    
+    @objc private func didTapAcesso() {
         let loginVC = ViewController()
-        
         self.present(loginVC, animated: true, completion: nil)
+    }
+    
+    
+    @objc private func didTapLogin() {
+         let loginVC = ViewController()
+         self.present(loginVC, animated: true, completion: nil)
+     }
+    
+    
+    
+    private func setupConstraints(){
         
-        //ViewController.presentViewController //mudar o nome para a ViewControllerself.presentViewController(vc, animated: true, completion: nil)
+        background.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        background.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        background.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        background.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        
+        logo.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        logo.topAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor, constant: 80).isActive = true
+        
+        tituloLabel1.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 20).isActive = true
+        tituloLabel1.centerXAnchor.constraint(equalTo: logo.centerXAnchor).isActive = true
+        
+        tituloLabel2.topAnchor.constraint(equalTo: tituloLabel1.bottomAnchor, constant: 2).isActive = true
+        tituloLabel2.centerXAnchor.constraint(equalTo: logo.centerXAnchor).isActive = true
+        
+        tituloLabel3.topAnchor.constraint(equalTo: tituloLabel2.bottomAnchor, constant: 2).isActive = true
+        tituloLabel3.centerXAnchor.constraint(equalTo: logo.centerXAnchor).isActive = true
+        
+        subtituloLabel1.topAnchor.constraint(equalTo: tituloLabel3.bottomAnchor, constant: 20).isActive = true
+        subtituloLabel1.centerXAnchor.constraint(equalTo: logo.centerXAnchor).isActive = true
+        
+        subtituloLabel2.topAnchor.constraint(equalTo: subtituloLabel1.bottomAnchor, constant: 2).isActive = true
+        subtituloLabel2.centerXAnchor.constraint(equalTo: logo.centerXAnchor).isActive = true
+        
+        primeiroAcessoButton.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.bottomAnchor).isActive = true
+        primeiroAcessoButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        primeiroAcessoButton.leadingAnchor.constraint(equalTo: self.view.layoutMarginsGuide.leadingAnchor).isActive = true
+        primeiroAcessoButton.widthAnchor.constraint(equalTo: self.view.layoutMarginsGuide.widthAnchor, multiplier: 0.48).isActive = true
+    
+        loginButton.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.bottomAnchor).isActive = true
+        loginButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        loginButton.trailingAnchor.constraint(equalTo: self.view.layoutMarginsGuide.trailingAnchor).isActive = true
+        loginButton.widthAnchor.constraint(equalTo: self.view.layoutMarginsGuide.widthAnchor, multiplier: 0.48).isActive = true
+        
+    
     }
     
 }

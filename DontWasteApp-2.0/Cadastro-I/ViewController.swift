@@ -12,15 +12,34 @@ class ViewController: UIViewController {
     
     //MARK: Fields - Private
     
+    let mensagens = Mensagens.init()
+    
+    let homeButton: UIButton = {
+        let button  = UIButton(type: .system)
+        button.setImage(#imageLiteral(resourceName: "cadastrohome"), for: .normal)
+        button.tintColor = UIColor.init(displayP3Red: 94/255, green: 186/255, blue: 168/255, alpha: 1)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(botaoHome), for: .touchUpInside)
+        return button
+    }()
+    
+    
+    let iconePerfil: UIImageView = {
+        let imageView = UIImageView.init(image: #imageLiteral(resourceName: "cadastrousuario"))
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    
     private let userView: UIImageView = {
-        
-        let userView = UIImageView (frame: CGRect(x: 170, y: 300, width: 65, height: 70))
+        let userView = UIImageView()
         userView.image = UIImage (named: "cadastrousuario")
         userView.contentMode = .scaleAspectFit
         userView.clipsToBounds = true
-        
         return userView
     }()
+    
     
     private let emailField: UITextField = {
         let emailField = UITextField()
@@ -30,9 +49,10 @@ class ViewController: UIViewController {
         emailField.layer.borderColor = (CGColor.init(red: 94/255, green: 186/255, blue: 168/255, alpha: 1))
         emailField.backgroundColor = .white
         emailField.leftViewMode = .always
-        emailField.leftView = UIView(frame: CGRect (x: 0, y: 0, width: 5, height: 0))
+        emailField.translatesAutoresizingMaskIntoConstraints = false
         return emailField
     }()
+    
     
     private let passwordField: UITextField = {
         let passField = UITextField()
@@ -42,58 +62,47 @@ class ViewController: UIViewController {
         passField.layer.borderColor = (CGColor.init(red: 94/255, green: 186/255, blue: 168/255, alpha: 1))
         passField.backgroundColor = .white
         passField.leftViewMode = .always
-        passField.leftView = UIView(frame: CGRect (x: 0, y: 0, width: 5, height: 0))
+        passField.translatesAutoresizingMaskIntoConstraints = false
         return passField
     }()
     
-    private let button: UIButton = {
-        let button = UIButton(frame: CGRect(x: 20, y: 20, width: 100, height: 40))
-        button.backgroundColor = (UIColor.init(displayP3Red: 94/255, green: 186/255, blue: 168/255, alpha: 1))
-        button.setTitleColor(.black, for: .normal)
-        button.setTitle("Próximo", for: .normal)
-        button.center = CGPoint(x: 350, y: 820)
-        
-        
+    
+    private var infoButton: UIButton = {
+        let button  = UIButton(type: .system)
+        button.setImage(#imageLiteral(resourceName: "cadastro_1_icone_ajuda"), for: .normal)
+        button.tintColor = UIColor.init(displayP3Red: 94/255, green: 186/255, blue: 168/255, alpha: 1)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(buttonHintTapped), for: .touchUpInside)
         return button
     }()
     
-    private var homeButton: UIButton = {
-        
-        var homeButton = UIButton(frame: CGRect(x: 20, y: 50, width: 40, height: 38))
-        homeButton.setImage(#imageLiteral(resourceName: "cadastrohome"), for: UIControl.State.init())
-        homeButton.contentMode = .scaleAspectFit
-        homeButton.clipsToBounds = true
-        homeButton.addTarget(self, action: #selector(homeButtonTapped), for: .touchUpInside)
-        
-        homeButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        homeButton.heightAnchor.constraint(equalToConstant: 38).isActive = true
-        
-        return homeButton
-        
-    }()
-    
-    private var infoButton: UIButton = {
-        
-        var infoButton = UIButton(frame: CGRect(x: 20, y: 20, width: 30, height: 25))
-        infoButton.backgroundColor = (UIColor.init(displayP3Red: 94/255, green: 186/255, blue: 168/255, alpha: 1))
-        infoButton.setTitleColor(.black, for: .normal)
-        infoButton.center = CGPoint(x: 370, y: 580)
-        infoButton.setImage(#imageLiteral(resourceName: "cadastrohint"), for: UIControl.State.init())
-        infoButton.layer.cornerRadius = 15
-        infoButton.addTarget(self, action: #selector(buttonHintTapped), for: .touchUpInside)
-        
-        return infoButton
-    }()
     
     private let labelHint: UILabel = {
-        let labelHint = UILabel(frame: CGRect(x: 20, y: 20, width: 500, height: 20))
+        let labelHint = UILabel()
         labelHint.textAlignment = .center
         labelHint.text = "A senha deve conter de 6 à 8 caracteres"
         labelHint.font = .systemFont(ofSize: 15, weight: .semibold)
-        labelHint.center = CGPoint(x: 200, y: 600)
         labelHint.isHidden = true
+        labelHint.translatesAutoresizingMaskIntoConstraints = false
         return labelHint
     }()
+    
+    
+    let proximoButton: UIButton = {
+        let button = UIButton(type: .system)
+        let corBackground = UIColor.init(displayP3Red: 94/255, green: 186/255, blue: 168/255, alpha: 1)
+        let corFonte = UIColor.black
+        button.setTitle("PRÓXIMO", for: .normal)
+        button.titleLabel?.font = UIFont(name: "Arial Bold", size: 12)
+        button.setTitleColor(corFonte, for: .normal)
+        button.contentHorizontalAlignment = .center
+        button.backgroundColor = corBackground
+        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+
     
     private let signOutButton: UIButton = {
         let button = UIButton()
@@ -108,18 +117,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(userView)
+        view.backgroundColor = .white
+
+        view.addSubview(homeButton)
+        view.addSubview(iconePerfil)
         view.addSubview(emailField)
         view.addSubview(passwordField)
-        view.addSubview(button)
-        view.addSubview(homeButton)
         view.addSubview(infoButton)
         view.addSubview(labelHint)
-        view.backgroundColor = .systemBackground
-        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        view.addSubview(proximoButton)
+        
         
         if FirebaseAuth.Auth.auth().currentUser != nil {
-            button.isHidden = true
+            proximoButton.isHidden = true
             emailField.isHidden = true
             passwordField.isHidden = true
             
@@ -128,18 +138,18 @@ class ViewController: UIViewController {
             
             signOutButton.addTarget(self, action: #selector(logOutTapped), for: .touchUpInside)
         }
+        
+        
+        setupConstraints()
+        
     }
     
     //MARK: Actions
     
-    @objc private func homeButtonTapped(){
-        
-        let homeVC = HomeViewController()
-        
-        self.present(homeVC, animated: true, completion: nil)
-        
-        
+    @objc private func botaoHome(){
+            dismiss(animated: true, completion: nil)
     }
+    
     
     @objc private func buttonHintTapped(){
         
@@ -150,13 +160,15 @@ class ViewController: UIViewController {
         }
     }
     
+    
     @objc private func logOutTapped() {
         do {
             try FirebaseAuth.Auth.auth().signOut()
             
-            button.isHidden = false
+            proximoButton.isHidden = false
             emailField.isHidden = false
             passwordField.isHidden = false
+            
             
             signOutButton.removeFromSuperview()
             
@@ -170,19 +182,7 @@ class ViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        
-        
-        emailField.frame = CGRect(x: 20,
-                                  y: 450,
-                                  width: view.frame.size.width-40,
-                                  height: 50)
-        
-        passwordField.frame = CGRect(x: 20,
-                                     y: emailField.frame.origin.y+emailField.frame.size.height+10,
-                                     width: view.frame.size.width-40,
-                                     height: 50)
-        
+
     }
     
    
@@ -197,12 +197,30 @@ class ViewController: UIViewController {
     }
     
     @objc private func didTapButton(){
-        print("Botão Próximo pressionado")
-        guard let email = emailField.text, !email.isEmpty,
-              let password = passwordField.text, !password.isEmpty else {
-            print("Faltando informações")
+        
+        let valida = ValidaCadastro()
+        guard let email = emailField.text else {return}
+        guard let password = passwordField.text else {return}
+        
+        if valida.validaEmail(email: email) {
+            if valida.validaSenha(senha: password) {
+                print("ok")
+            } else {
+                Alerta.init(controller: self).exibirAlerta(titulo: mensagens.alertaSenhaErroTitulo, mensagem: mensagens.alertaSenhaErroMensagem)
+                return
+            }
+        } else {
+            Alerta.init(controller: self).exibirAlerta(titulo: mensagens.alertaEmailErroTitulo, mensagem: mensagens.alertaEmailErroMensagem)
             return
         }
+        
+//        print("Botão Próximo pressionado")
+//        guard let email = emailField.text, !email.isEmpty,
+//              let password = passwordField.text, !password.isEmpty else {
+//            Alerta(controller: self).exibirAlerta(titulo: "Faltam Informações" , mensagem: "")
+//            print("Faltando informações")
+//            return
+//        }
         
         
         // Get Auth Instances
@@ -229,7 +247,7 @@ class ViewController: UIViewController {
             
             strongSelf.emailField.isHidden = true
             strongSelf.passwordField.isHidden = true
-            strongSelf.button.isHidden = true
+            strongSelf.proximoButton.isHidden = true
             
             strongSelf.emailField.resignFirstResponder()
             strongSelf.passwordField.resignFirstResponder()
@@ -252,26 +270,18 @@ class ViewController: UIViewController {
                                             
                                             guard let strongSelf = self else {
                                                 return
-                                                
                                             }
                                             
                                             guard error == nil else {
                                                 //show account creation
+                                                Alerta.init(controller: self!).exibirAlerta(titulo: self!.mensagens.alertaErroCadastroTitulo, mensagem: self!.mensagens.alertaErroCadastroMensagem)
                                                 print("Falha na criação da conta")
                                                 return
                                             }
                                             
-                                            print("Você se cadastrou")
-                                            
-                                            strongSelf.userView.isHidden = true
-                                            strongSelf.emailField.isHidden = true
-                                            strongSelf.passwordField.isHidden = true
-                                            strongSelf.button.isHidden = true
-                                            strongSelf.homeButton.isHidden = true
-                                            strongSelf.infoButton.isHidden = true
-                                            strongSelf.labelHint.isHidden = true
-                                            strongSelf.emailField.resignFirstResponder()
-                                            strongSelf.passwordField.resignFirstResponder()
+                                            let destino = Cadastro2ViewController()
+                                            destino.modalPresentationStyle = .fullScreen
+                                            self?.present(destino, animated: true, completion: nil)
                                             
                                         })
                                         
@@ -286,5 +296,54 @@ class ViewController: UIViewController {
     
     
     
+    // MARK: - CONSTRAINTS
+    
+    private func setupConstraints(){
+        
+        // BOTÃO HOME
+        
+        let margem = self.view.layoutMarginsGuide
+        
+        homeButton.topAnchor.constraint(equalTo: margem.topAnchor, constant: 10).isActive = true
+        homeButton.leadingAnchor.constraint(equalTo: margem.leadingAnchor).isActive = true
+        homeButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        homeButton.heightAnchor.constraint(equalToConstant: 38).isActive = true
+        
+        iconePerfil.centerXAnchor.constraint(equalTo: margem.centerXAnchor).isActive = true
+        iconePerfil.topAnchor.constraint(equalTo: homeButton.bottomAnchor, constant: 35).isActive = true
+        iconePerfil.widthAnchor.constraint(equalToConstant: 65).isActive = true
+        iconePerfil.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        
+        emailField.topAnchor.constraint(equalTo: iconePerfil.bottomAnchor, constant: 35).isActive = true
+        emailField.leadingAnchor.constraint(equalTo: margem.leadingAnchor).isActive = true
+        emailField.trailingAnchor.constraint(equalTo: margem.trailingAnchor).isActive = true
+        emailField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: 15).isActive = true
+        passwordField.leadingAnchor.constraint(equalTo: margem.leadingAnchor).isActive = true
+        passwordField.trailingAnchor.constraint(equalTo: margem.trailingAnchor).isActive = true
+        passwordField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        infoButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 5).isActive = true
+        infoButton.trailingAnchor.constraint(equalTo: margem.trailingAnchor).isActive = true
+        infoButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        infoButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        
+        labelHint.topAnchor.constraint(equalTo: infoButton.bottomAnchor, constant: 5).isActive = true
+        labelHint.trailingAnchor.constraint(equalTo: margem.trailingAnchor).isActive = true
+        labelHint.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        
+        proximoButton.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.bottomAnchor).isActive = true
+        proximoButton.trailingAnchor.constraint(equalTo: self.view.layoutMarginsGuide.trailingAnchor).isActive = true
+        proximoButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        proximoButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        
+    }
+    
+    
 }
+
+
+
+
 

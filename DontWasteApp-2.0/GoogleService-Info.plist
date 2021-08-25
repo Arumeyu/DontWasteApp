@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>726566420114-mej4cjfoj6e7tr475ts25i5taaaoh5v8.apps.googleusercontent.com</string>
+	<string>251430908670-app85ghq6bmmqb870i1itnji44t5qdif.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.726566420114-mej4cjfoj6e7tr475ts25i5taaaoh5v8</string>
+	<string>com.googleusercontent.apps.251430908670-app85ghq6bmmqb870i1itnji44t5qdif</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCB2EjjZEy3StsAQWZOSnzetYDwTZ96oRE</string>
+	<string>AIzaSyBBl6nuC7wzMOLqecGZdxMp7CyLIWWmkZE</string>
 	<key>GCM_SENDER_ID</key>
-	<string>726566420114</string>
+	<string>251430908670</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.D.U.DontWasteApp</string>
+	<string>com.D.U.DontWasteApp-2-0</string>
 	<key>PROJECT_ID</key>
-	<string>dontwasteapp-98082</string>
+	<string>dontwasteapp2</string>
 	<key>STORAGE_BUCKET</key>
-	<string>dontwasteapp-98082.appspot.com</string>
+	<string>dontwasteapp2.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:726566420114:ios:a4375e8a6325f7ddb9b04b</string>
+	<string>1:251430908670:ios:abde8c9f8c572547556baf</string>
 </dict>
 </plist>

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4CBDC4B826CEFBA000457030 /* Alerta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBDC4B326CEFBA000457030 /* Alerta.swift */; };
+		4CBDC4B926CEFBA000457030 /* Mensagens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBDC4B426CEFBA000457030 /* Mensagens.swift */; };
+		4CBDC4BA26CEFBA000457030 /* ValidaCadastro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBDC4B526CEFBA000457030 /* ValidaCadastro.swift */; };
+		4CBDC4BB26CEFBA000457030 /* Cadastro2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBDC4B626CEFBA000457030 /* Cadastro2ViewController.swift */; };
+		4CBDC4BC26CEFBA000457030 /* Cadastro2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBDC4B726CEFBA000457030 /* Cadastro2View.swift */; };
+		CE77F90326D4188C00AED4FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE77F90226D4188B00AED4FD /* GoogleService-Info.plist */; };
 		CEB1CFD626CD79D500002A97 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1CFD526CD79D500002A97 /* HomeViewController.swift */; };
 		CEE6E37526CDA61D00A76E4E /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE6E36A26CDA61D00A76E4E /* OpenSans-SemiBold.ttf */; };
 		CEE6E37626CDA61D00A76E4E /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEE6E36B26CDA61D00A76E4E /* OpenSans-Light.ttf */; };
@@ -24,14 +30,19 @@
 		CEF2034626CC078F00171AF9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF2034526CC078F00171AF9 /* ViewController.swift */; };
 		CEF2034B26CC079200171AF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF2034A26CC079200171AF9 /* Assets.xcassets */; };
 		CEF2034E26CC079200171AF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF2034C26CC079200171AF9 /* LaunchScreen.storyboard */; };
-		CEF2035626CC095700171AF9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEF2035526CC095700171AF9 /* GoogleService-Info.plist */; };
 		F49EB8AE2ED48339AB0919D8 /* Pods_DontWasteApp_2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E690B9CDCEAD81EC269CE5B /* Pods_DontWasteApp_2_0.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4CBDC4B326CEFBA000457030 /* Alerta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerta.swift; sourceTree = "<group>"; };
+		4CBDC4B426CEFBA000457030 /* Mensagens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mensagens.swift; sourceTree = "<group>"; };
+		4CBDC4B526CEFBA000457030 /* ValidaCadastro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidaCadastro.swift; sourceTree = "<group>"; };
+		4CBDC4B626CEFBA000457030 /* Cadastro2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cadastro2ViewController.swift; sourceTree = "<group>"; };
+		4CBDC4B726CEFBA000457030 /* Cadastro2View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cadastro2View.swift; sourceTree = "<group>"; };
 		8E690B9CDCEAD81EC269CE5B /* Pods_DontWasteApp_2_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DontWasteApp_2_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E6B5401111C559F8C947CD /* Pods-DontWasteApp-2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DontWasteApp-2.0.release.xcconfig"; path = "Target Support Files/Pods-DontWasteApp-2.0/Pods-DontWasteApp-2.0.release.xcconfig"; sourceTree = "<group>"; };
 		BCD3E99C4D9469C1B5A8E937 /* Pods-DontWasteApp-2.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DontWasteApp-2.0.debug.xcconfig"; path = "Target Support Files/Pods-DontWasteApp-2.0/Pods-DontWasteApp-2.0.debug.xcconfig"; sourceTree = "<group>"; };
+		CE77F90226D4188B00AED4FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CEB1CFD526CD79D500002A97 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CEE6E36A26CDA61D00A76E4E /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		CEE6E36B26CDA61D00A76E4E /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
@@ -51,7 +62,6 @@
 		CEF2034A26CC079200171AF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEF2034D26CC079200171AF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEF2034F26CC079200171AF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEF2035526CC095700171AF9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +76,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4CBDC4B126CEFBA000457030 /* Cadastro-II */ = {
+			isa = PBXGroup;
+			children = (
+				4CBDC4B626CEFBA000457030 /* Cadastro2ViewController.swift */,
+				4CBDC4B726CEFBA000457030 /* Cadastro2View.swift */,
+			);
+			path = "Cadastro-II";
+			sourceTree = "<group>";
+		};
+		4CBDC4B226CEFBA000457030 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4CBDC4B326CEFBA000457030 /* Alerta.swift */,
+				4CBDC4B426CEFBA000457030 /* Mensagens.swift */,
+				4CBDC4B526CEFBA000457030 /* ValidaCadastro.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		A740F17295110B2BB113F77A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,14 +142,16 @@
 		CEF2034026CC078F00171AF9 /* DontWasteApp-2.0 */ = {
 			isa = PBXGroup;
 			children = (
+				4CBDC4B226CEFBA000457030 /* Utils */,
 				CEF2035926CC0BA000171AF9 /* HomeScreen */,
 				CEF2035726CC0B5B00171AF9 /* Cadastro-I */,
+				4CBDC4B126CEFBA000457030 /* Cadastro-II */,
 				CEF2034126CC078F00171AF9 /* AppDelegate.swift */,
 				CEF2034326CC078F00171AF9 /* SceneDelegate.swift */,
 				CEF2034A26CC079200171AF9 /* Assets.xcassets */,
 				CEF2034C26CC079200171AF9 /* LaunchScreen.storyboard */,
+				CE77F90226D4188B00AED4FD /* GoogleService-Info.plist */,
 				CEF2034F26CC079200171AF9 /* Info.plist */,
-				CEF2035526CC095700171AF9 /* GoogleService-Info.plist */,
 				CEE6E36926CDA61D00A76E4E /* Open_Sans */,
 				CEF2035826CC0B7900171AF9 /* info */,
 			);
@@ -222,7 +253,6 @@
 				CEE6E37526CDA61D00A76E4E /* OpenSans-SemiBold.ttf in Resources */,
 				CEF2034E26CC079200171AF9 /* LaunchScreen.storyboard in Resources */,
 				CEE6E37826CDA61D00A76E4E /* OpenSans-ExtraBold.ttf in Resources */,
-				CEF2035626CC095700171AF9 /* GoogleService-Info.plist in Resources */,
 				CEE6E37B26CDA61D00A76E4E /* OpenSans-SemiBoldItalic.ttf in Resources */,
 				CEE6E37726CDA61D00A76E4E /* OpenSans-Italic.ttf in Resources */,
 				CEE6E37A26CDA61D00A76E4E /* OpenSans-Bold.ttf in Resources */,
@@ -232,6 +262,7 @@
 				CEE6E37C26CDA61D00A76E4E /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				CEE6E37E26CDA61D00A76E4E /* OpenSans-Regular.ttf in Resources */,
 				CEF2034B26CC079200171AF9 /* Assets.xcassets in Resources */,
+				CE77F90326D4188C00AED4FD /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,8 +316,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEB1CFD626CD79D500002A97 /* HomeViewController.swift in Sources */,
+				4CBDC4BA26CEFBA000457030 /* ValidaCadastro.swift in Sources */,
+				4CBDC4BC26CEFBA000457030 /* Cadastro2View.swift in Sources */,
+				4CBDC4BB26CEFBA000457030 /* Cadastro2ViewController.swift in Sources */,
+				4CBDC4B926CEFBA000457030 /* Mensagens.swift in Sources */,
 				CEF2034626CC078F00171AF9 /* ViewController.swift in Sources */,
 				CEF2034226CC078F00171AF9 /* AppDelegate.swift in Sources */,
+				4CBDC4B826CEFBA000457030 /* Alerta.swift in Sources */,
 				CEF2034426CC078F00171AF9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
